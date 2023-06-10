@@ -19,8 +19,9 @@ LOG_NAME="Launcher"
 # shellcheck source=src/logging.sh
 source logging.sh
 
-# ensure the config directory exists
 FOUNDRY_DATA_DIR="${FOUNDRY_DATA_DIR-/data}"
+
+# ensure the data directory exists
 log_debug "Ensuring ${FOUNDRY_DATA_DIR} directory exists."
 mkdir -p "${FOUNDRY_DATA_DIR}"
 CONFIG_DIR="${FOUNDRY_DATA_DIR}/Config"
