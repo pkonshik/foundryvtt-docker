@@ -73,6 +73,7 @@ COPY \
   src/check_health.sh \
   src/entrypoint.sh \
   src/launcher.sh \
+  src/run.sh \
   src/logging.sh \
   ./
 RUN addgroup --system --gid ${FOUNDRY_UID} foundry \
@@ -95,6 +96,5 @@ EXPOSE 30000/TCP
 # EXPOSE 49152-65535/UDP
 
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["resources/app/main.mjs", "--port=30000", "--headless", "--noupdate",\
-  "--dataPath=/data"]
+CMD ./run.sh
 HEALTHCHECK --start-period=3m --interval=30s --timeout=5s CMD ./check_health.sh

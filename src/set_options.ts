@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const DATA_PATH: string = "/data";
+const DATA_PATH: string = process.env.FOUNDRY_DATA_DIR || "/data";
 const FOUNDRY_PORT: number = 30000;
 const LANGUAGE: string = "en.core";
 const MAXIMUM_PORT: number = 65535;
@@ -41,7 +41,7 @@ let options: object = {
   awsConfig: process.env.FOUNDRY_AWS_CONFIG || null,
   compressSocket: process.env.FOUNDRY_COMPRESS_WEBSOCKET == "true",
   compressStatic: process.env.FOUNDRY_MINIFY_STATIC_FILES == "true",
-  dataPath: process.env.FOUNDRY_DATA_DIR || DATA_PATH,
+  dataPath: DATA_PATH,
   demo: parsedDemoConfig,
   fullscreen: false,
   hostname: process.env.FOUNDRY_HOSTNAME || null,

@@ -12,7 +12,7 @@ set -o errexit
 # pipefail is supported by busybox
 set -o pipefail
 
-CONFIG_DIR="/data/Config"
+CONFIG_DIR="${FOUNDRY_DATA_DIR-/data}/Config"
 ADMIN_KEY_FILE="${CONFIG_DIR}/admin.txt"
 CONFIG_FILE="${CONFIG_DIR}/options.json"
 # shellcheck disable=SC2034
